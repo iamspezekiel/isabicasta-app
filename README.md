@@ -227,6 +227,8 @@ isabicasta-app/
 ├── .env.example                # Environment variable template
 ├── LICENSE                     # MIT
 ├── README.md
+├── public/
+│   └── favicon.svg             # App emblem as SVG favicon
 └── src/
     ├── main.tsx                # React entry point
     ├── App.tsx                 # Root layout: view routing, tabs, settings/profile/history state
