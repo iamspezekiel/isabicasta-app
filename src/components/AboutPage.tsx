@@ -18,8 +18,10 @@ import {
   Lock,
   Layers,
   HeartHandshake,
+  Github,
 } from 'lucide-react';
 import { SCRIPTURAL_ACCOUNTS, RESPECTFUL_DISCLAIMER } from '../data/scriptures';
+import { APP_VERSION, GITHUB_REPO_URL } from '../version';
 
 interface AboutPageProps {
   onBackToDecision: () => void;
@@ -69,7 +71,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
               <h1 className="text-2xl sm:text-3xl font-bold font-heading text-[#2a241c] tracking-tight">
                 IsabiCasta
               </h1>
-              <span className="text-xs text-[#6f665c] font-mono">v1.0</span>
+              <span className="text-xs text-[#6f665c] font-mono">v{APP_VERSION}</span>
             </div>
             <p className="text-xs sm:text-sm text-[#8c6239] font-medium font-heading">
               A private way to choose, when you are undecided.
@@ -273,7 +275,33 @@ export const AboutPage: React.FC<AboutPageProps> = ({
         </div>
       </div>
 
-      {/* 7. QUICK ACTION CALLOUTS */}
+      {/* 7. OPEN SOURCE CODE */}
+      <div className="rounded-3xl border border-[#dfd4c3] bg-[#faf6ef] p-6 shadow-xs space-y-4">
+        <div className="flex items-center gap-2.5 text-[#2a241c]">
+          <Github className="w-4 h-4 text-[#8c6239] shrink-0" />
+          <h2 className="text-sm font-bold font-heading">Open Source</h2>
+          <span className="ml-auto font-mono text-[11px] text-[#6f665c]">v{APP_VERSION}</span>
+        </div>
+
+        <p className="text-xs text-[#6f665c] leading-relaxed">
+          IsabiCasta is free and open-source software under the MIT license. Read the source
+          code, report issues, or contribute on GitHub.
+        </p>
+
+        <div className="pt-1">
+          <a
+            href={GITHUB_REPO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#2a241c] hover:bg-[#423a2e] text-[#faf6ef] text-xs font-semibold transition-colors min-h-[42px] cursor-pointer shadow-xs"
+          >
+            <Github className="w-3.5 h-3.5" />
+            <span>View Code on GitHub</span>
+          </a>
+        </div>
+      </div>
+
+      {/* 8. QUICK ACTION CALLOUTS */}
       <div className="p-5 rounded-3xl bg-[#f3ece1] border border-[#dfd4c3] flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
         <div>
           <h3 className="font-heading font-bold text-sm text-[#2a241c]">Ready to cast a decision?</h3>

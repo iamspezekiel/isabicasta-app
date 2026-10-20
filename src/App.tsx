@@ -295,7 +295,6 @@ export default function App() {
             onBackToDecision={() => setCurrentView('decision')}
             onNavigateToAbout={() => setCurrentView('about')}
             onNavigateToHistory={() => setCurrentView('history')}
-            onReplayPreloader={() => setShowPreloader(true)}
           />
         ) : currentView === 'history' ? (
           <HistoryPage

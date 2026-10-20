@@ -25,9 +25,11 @@ import {
   VolumeX,
   Smartphone,
   Lock,
+  Github,
 } from 'lucide-react';
 import { AppSettings, UserProfile, DecisionHistoryItem } from '../types';
 import { soundFx } from '../utils/sound';
+import { APP_VERSION, GITHUB_REPO_URL } from '../version';
 
 interface ProfilePageProps {
   profile: UserProfile;
@@ -41,7 +43,6 @@ interface ProfilePageProps {
   onBackToDecision: () => void;
   onNavigateToAbout: () => void;
   onNavigateToHistory?: () => void;
-  onReplayPreloader?: () => void;
 }
 
 export const ProfilePage: React.FC<ProfilePageProps> = ({
@@ -56,7 +57,6 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
   onBackToDecision,
   onNavigateToAbout,
   onNavigateToHistory,
-  onReplayPreloader,
 }) => {
   const [isEditingName, setIsEditingName] = useState(false);
   const [tempName, setTempName] = useState(profile.displayName);
@@ -550,26 +550,25 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
             <Play className="w-3.5 h-3.5 text-[#8c6239]" />
             <span>Replay Guide</span>
           </button>
-
-          {onReplayPreloader && (
-            <button
-              type="button"
-              onClick={onReplayPreloader}
-              className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#f3ece1] hover:bg-[#eae0d2] text-[#2a241c] border border-[#dfd4c3] text-xs font-semibold transition-colors min-h-[42px] cursor-pointer"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-[#8c6239]" />
-              <span>Brand Emblem</span>
-            </button>
-          )}
         </div>
       </div>
 
       {/* 6. APP RESET & ENCLAVE INTEGRITY FOOTER */}
       <div className="p-4 sm:p-5 rounded-2xl border border-[#dfd4c3] bg-[#faf6ef] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#6f665c]">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
           <span className="font-bold text-[#2a241c] font-heading text-sm">IsabiCasta</span>
           <span>·</span>
-          <span className="font-mono text-[11px]">Private Edition</span>
+          <span className="font-mono text-[11px]">v{APP_VERSION}</span>
+          <span>·</span>
+          <a
+            href={GITHUB_REPO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 font-semibold text-[#8c6239] hover:text-[#734e2b] transition-colors cursor-pointer"
+          >
+            <Github className="w-3.5 h-3.5" />
+            <span>View Code</span>
+          </a>
         </div>
 
         {showResetConfirm ? (
