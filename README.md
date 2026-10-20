@@ -155,10 +155,10 @@ cd isabicasta-app
 ### 2. Install dependencies
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 ```
 
-> ⚠️ **Why `--legacy-peer-deps`?** `package.json` pins `esbuild@^0.25` as a devDependency, while Vite 8 declares a peer-optional range of `esbuild@^0.27 || ^0.28`, so strict npm resolution fails with `ERESOLVE`. `--legacy-peer-deps` installs the tree as the lockfile intends. With Bun, simply run `bun install`.
+> Using [Bun](https://bun.sh) instead of npm? Run `bun install` (the repo also ships a `bun.lock`).
 
 ### 3. (Optional) Configure environment
 
@@ -282,7 +282,6 @@ Nothing ever leaves the device. To fully reset the app, clear these keys (or all
 
 | Symptom | Fix |
 | --- | --- |
-| `npm install` fails with `ERESOLVE … esbuild` | Use `npm install --legacy-peer-deps` (see [Getting Started](#2-install-dependencies)) |
 | "Port 3000 is in use" | Expected — Vite picks the next free port. Or stop the other process: `Get-NetTCPConnection -LocalPort 3000 -State Listen`, then `Stop-Process -Id <pid>` |
 | `rm: command not found` when running `npm run clean` | Use Git Bash / WSL / macOS, or delete `dist/` manually |
 | Vite warns about `__dirname` in `vite.config.ts` | Harmless forward-compat warning; the config works today |
