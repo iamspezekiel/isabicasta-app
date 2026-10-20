@@ -1,0 +1,6 @@
+{
+  "name": "IsabiCasta",
+  "description": "A private way to choose, when you are undecided.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

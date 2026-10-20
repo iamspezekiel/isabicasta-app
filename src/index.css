@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-parchment: #f3ece1;
+  --color-cream: #faf6ef;
+  --color-ink: #2a241c;
+  --color-muted: #6f665c;
+  --color-bronze: #8c6239;
+  --color-bronze-dark: #6f4b26;
+  --color-bronze-light: #ad7c4c;
+  --color-parchment-border: #dfd4c3;
+  --color-parchment-subtle: #eae2d6;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Fraunces', Georgia, serif;
+}
+
+@layer base {
+  body {
+    font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+    color: #2a241c;
+    background-color: #f3ece1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-heading, .font-display {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+
+  .font-scripture, .font-quote {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+  }
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Restrained parchment texture / subtle quiet fiber touch */
+.bg-parchment-surface {
+  background-color: #f3ece1;
+}
+
+.bg-cream-surface {
+  background-color: #faf6ef;
+}
+
+/* Bronze coin rim / tactile border */
+.coin-shekel-rim {
+  box-shadow: inset 0 0 0 2px rgba(140, 98, 57, 0.4), inset 0 0 12px rgba(42, 36, 28, 0.15), 0 6px 16px -2px rgba(42, 36, 28, 0.12);
+}
+
+/* Safe area padding for mobile notches and home indicators */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0rem);
+}
+
+/* Smooth touch scrolling */
+.touch-pan-y {
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+}
