@@ -201,9 +201,6 @@ export default function App() {
               <span className="text-xl font-bold font-heading text-[#2a241c] leading-none tracking-tight">
                 IsabiCasta
               </span>
-              <span className="text-xs text-[#6f665c] font-normal hidden sm:block mt-0.5">
-                A private way to choose, when you are undecided.
-              </span>
             </div>
           </button>
 
