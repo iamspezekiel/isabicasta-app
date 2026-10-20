@@ -27,14 +27,9 @@ import {
   Lock,
   Github,
 } from 'lucide-react';
-import { AppSettings, UserProfile, DecisionHistoryItem } from '../types';
+import { AppSettings, UserProfile, DecisionHistoryItem, BeforeInstallPromptEvent } from '../types';
 import { soundFx } from '../utils/sound';
 import { APP_VERSION, GITHUB_REPO_URL } from '../version';
-
-type BeforeInstallPromptEvent = Event & {
-  prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
-};
 
 interface ProfilePageProps {
   profile: UserProfile;

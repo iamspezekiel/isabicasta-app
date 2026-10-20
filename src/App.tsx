@@ -13,6 +13,7 @@ import { HistoryPage } from './components/HistoryPage';
 import { ProfilePage } from './components/ProfilePage';
 import { AboutPage } from './components/AboutPage';
 import { Preloader } from './components/Preloader';
+import { InstallAppModal } from './components/InstallAppModal';
 import { soundFx } from './utils/sound';
 import { DecisionHistoryItem, AppSettings, UserProfile } from './types';
 
@@ -476,6 +477,9 @@ export default function App() {
         onComplete={handleCompleteOnboarding}
         isFirstTime={isFirstTimeUser}
       />
+
+      {/* PWA Install Popup */}
+      <InstallAppModal holdOff={showPreloader || showOnboarding} />
 
       {/* Brand Preloader */}
       <AnimatePresence>

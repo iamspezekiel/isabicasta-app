@@ -95,7 +95,8 @@ The app offers two time-honored tools:
 ### 📲 Installable PWA
 
 - Web app manifest + service worker — install IsabiCasta to your home screen (Android/iOS) or desktop.
-- An **Install App** button appears on the Profile page whenever the browser offers the install prompt.
+- A dismissible **install popup** appears a few seconds after the browser offers the install prompt (your decline is remembered).
+- An **Install App** button is also available on the Profile page whenever the prompt is offered.
 - Offline support: the app shell and core assets are cached for repeat visits.
 
 ### 📱 Mobile-First Responsive Design

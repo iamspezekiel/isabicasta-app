@@ -46,3 +46,9 @@ export interface UserProfile {
   createdAt?: number;
   joinedDate?: number;
 }
+
+/** Deferred `beforeinstallprompt` event used by the PWA install flows. */
+export type BeforeInstallPromptEvent = Event & {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+};
