@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Sliders,
@@ -30,6 +30,11 @@ import {
 import { AppSettings, UserProfile, DecisionHistoryItem } from '../types';
 import { soundFx } from '../utils/sound';
 import { APP_VERSION, GITHUB_REPO_URL } from '../version';
+
+type BeforeInstallPromptEvent = Event & {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+};
 
 interface ProfilePageProps {
   profile: UserProfile;
@@ -63,6 +68,25 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
   const [showClearConfirm, setShowClearConfirm] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [exportNotice, setExportNotice] = useState<string | null>(null);
+
+  // PWA install prompt — the button only appears when the browser offers it.
+  const [installEvent, setInstallEvent] = useState<BeforeInstallPromptEvent | null>(null);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      e.preventDefault();
+      setInstallEvent(e as BeforeInstallPromptEvent);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstallApp = async () => {
+    if (!installEvent) return;
+    installEvent.prompt();
+    const choice = await installEvent.userChoice;
+    if (choice.outcome) setInstallEvent(null);
+  };
 
   // Statistics
   const totalDecisions = history.length;
@@ -550,6 +574,17 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
             <Play className="w-3.5 h-3.5 text-[#8c6239]" />
             <span>Replay Guide</span>
           </button>
+
+          {installEvent && (
+            <button
+              type="button"
+              onClick={handleInstallApp}
+              className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#f3ece1] hover:bg-[#eae0d2] text-[#2a241c] border border-[#dfd4c3] text-xs font-semibold transition-colors min-h-[42px] cursor-pointer"
+            >
+              <Download className="w-3.5 h-3.5 text-[#8c6239]" />
+              <span>Install App</span>
+            </button>
+          )}
         </div>
       </div>
 

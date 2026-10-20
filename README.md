@@ -92,6 +92,12 @@ The app offers two time-honored tools:
 - **Zero** analytics, ads, external API calls, trackers, or logins.
 - One-click history reset with confirmation safeguards.
 
+### 📲 Installable PWA
+
+- Web app manifest + service worker — install IsabiCasta to your home screen (Android/iOS) or desktop.
+- An **Install App** button appears on the Profile page whenever the browser offers the install prompt.
+- Offline support: the app shell and core assets are cached for repeat visits.
+
 ### 📱 Mobile-First Responsive Design
 
 - Ergonomic touch targets (≥ 44 px; bottom navigation uses a 48 px minimum height).
@@ -228,7 +234,10 @@ isabicasta-app/
 ├── LICENSE                     # MIT
 ├── README.md
 ├── public/
-│   └── favicon.svg             # App emblem as SVG favicon
+│   ├── favicon.svg             # App emblem as SVG favicon
+│   ├── manifest.webmanifest    # PWA install manifest
+│   ├── sw.js                   # Service worker (offline cache + installability)
+│   └── icons/                  # PWA PNG icons (192, 512, maskable, apple-touch)
 └── src/
     ├── main.tsx                # React entry point
     ├── App.tsx                 # Root layout: view routing, tabs, settings/profile/history state
