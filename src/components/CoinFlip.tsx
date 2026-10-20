@@ -18,6 +18,7 @@ import {
 import confetti from 'canvas-confetti';
 import { soundFx } from '../utils/sound';
 import { DecisionHistoryItem } from '../types';
+import coinShekelImage from '../assets/images/ancient_coin_shekel_1792317607431.jpg';
 
 interface CoinFlipProps {
   onRecordHistory: (item: Omit<DecisionHistoryItem, 'id' | 'timestamp'>) => void;
@@ -537,7 +538,7 @@ export const CoinFlip: React.FC<CoinFlipProps> = ({ onRecordHistory }) => {
               <div className="absolute inset-0 rounded-full backface-hidden bg-[#faf6ef] border-4 border-[#8c6239] shadow-md flex flex-col items-center justify-center text-[#2a241c] p-2 text-center coin-shekel-rim">
                 <div className="w-14 h-14 rounded-full bg-[#f3ece1] border border-[#dfd4c3] flex items-center justify-center mb-1 overflow-hidden">
                   <img
-                    src="/src/assets/images/ancient_coin_shekel_1792317607431.jpg"
+                    src={coinShekelImage}
                     alt="Heads shekel"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover mix-blend-multiply opacity-90"

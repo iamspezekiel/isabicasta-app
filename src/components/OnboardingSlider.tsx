@@ -17,6 +17,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { SCRIPTURAL_ACCOUNTS, RESPECTFUL_DISCLAIMER } from '../data/scriptures';
+import castingLotsImage from '../assets/images/ancient_casting_lots_1792317606582.jpg';
 
 interface OnboardingSliderProps {
   isOpen: boolean;
@@ -197,7 +198,7 @@ export const OnboardingSlider: React.FC<OnboardingSliderProps> = ({
               >
                 <div className="w-full h-44 rounded-2xl overflow-hidden border border-[#dfd4c3] relative bg-[#f3ece1] shadow-2xs">
                   <img
-                    src="/src/assets/images/ancient_casting_lots_1792317606582.jpg"
+                    src={castingLotsImage}
                     alt="Ancient casting lots carved stones resting in an olive wood bowl"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-center"
