@@ -288,7 +288,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({
           code, report issues, or contribute on GitHub.
         </p>
 
-        <div className="pt-1">
+        <div className="pt-1 flex justify-center">
           <a
             href={GITHUB_REPO_URL}
             target="_blank"
